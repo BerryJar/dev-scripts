@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/postgres
+cd "$POSTGRESDIR"
 sudo systemctl start docker
 sudo docker stop gitlab
 sudo docker compose up -d

@@ -1,15 +1,24 @@
 #!/bin/bash
 
-cd /home/z00d/.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.2
+if [ -z "$IDEADIR" ]; then
+    echo "Error: IDEADIR environment variable is not set."
+    exit 1
+fi
 
-rm .lock
+cd "$IDEADIR" || { echo "Error: Unable to change directory to $IDEADIR"; exit 1;}
 
-folder="/home/z00d/.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.2"
-file=".lock"
-
-if [ -f "$folder/$file" ]; then
-    echo "Delete failed."
+# Check if the lock file exists
+if [ -f ".lock" ]; then
+    # Attempt to remove the lock file
+    rm -f .lock
+    
+    # Check if the removal was successful
+    if [ -f ".lock" ]; then
+        echo "Delete failed: Unable to remove .lock file."
+    else
+        echo "Delete succeeded: .lock file has been removed."
+    fi
 else
-    echo "Delete succeeded."
+    echo "No .lock file found. There is no file to delete."
 fi
 
