@@ -5,7 +5,7 @@ if [ -z "$IDEADIR" ]; then
     exit 1
 fi
 
-cd "$IDEADIR" || { echo "Error: Unable to change directory to $IDEADIR"; exit 1;}
+cd "$IDEADIR" || { echo "Error: Unable to change directory to $IDEADIR."; exit 1;}
 
 # Check if the lock file exists
 if [ -f ".lock" ]; then
