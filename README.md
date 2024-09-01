@@ -12,7 +12,7 @@ you can run command `export VARIABLE=definition`. You can check to see if it's p
 
 ## Persistent environment variables
 
-For the environment variable to persist between sessions (user logoff/login, shutdowns), you must add it to your `~/.bashrc` file. To achieve this, I will list two methods. First begin by running `cd ~/`
+For the environment variable to persist between sessions (user logoff/login, shutdowns), you must add it to your `~/.bashrc` file. To achieve this, I will list two methods. First begin by running `cd ~/`.
 
 ### GUI method
 
