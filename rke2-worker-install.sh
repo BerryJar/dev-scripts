@@ -8,7 +8,7 @@ echo "Token entered: $TOKEN"
 
 systemctl disable --now ufw
 apt update
-apt install nfs-common -y open iscsi
+apt install nfs-common -y open-iscsi
 apt upgrade -y
 apt autoremove -y
 
