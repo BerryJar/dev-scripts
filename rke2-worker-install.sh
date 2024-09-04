@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if (( $EUID != 0)); then
+    echo "You must run this script as root."
+fi
+
 FQDN="$1"
 TOKEN="$2"
 
