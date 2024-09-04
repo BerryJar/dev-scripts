@@ -1,4 +1,4 @@
-#!/bin/sh
+0#!/bin/sh
 
 if (( $EUID != 0 )); then
     echo "You must run this script as root."
@@ -22,7 +22,7 @@ echo "export KUBECONFIG=/etc/rancher/rke2/rke2.yaml" | tee -a ~/.bashrc
 
 echo "----------"
 echo "Below is your server key. Pass the output into the rke2-worker-install.sh script as the second argument.
-cat /var/lib/rancher/rke2/server/node-token
+echo "$(cat /var/lib/rancher/rke2/server/node-token)"
 echo "The key can also be found at /var/lib/rancher/rke2/server/node-token"
 echo "----------"
 
