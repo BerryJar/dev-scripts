@@ -35,7 +35,7 @@ export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 echo "export KUBECONFIG=/etc/rancher/rke2/rke2.yaml" | tee -a ~/.bashrc
 
 echo "----------"
-echo "Below is your server key. Pass the output into the rke2-worker-install.sh script as the second argument.
+echo "Below is your server key. Pass the output into the rke2-worker-install.sh script as the second argument."
 echo "$(cat /var/lib/rancher/rke2/server/node-token)"
 echo "The key can also be found at /var/lib/rancher/rke2/server/node-token"
 echo "----------"
