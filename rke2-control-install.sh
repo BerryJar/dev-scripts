@@ -1,4 +1,18 @@
-0#!/bin/sh
+#!/bin/sh
+
+run_kubectl=false
+
+while getopts ":nc: opt; do
+    case $opt in
+        nc)
+            run_kubectl=true
+            ;;
+        /?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+    esac
+done
 
 if (( $EUID != 0 )); then
     echo "You must run this script as root."
@@ -26,5 +40,7 @@ echo "$(cat /var/lib/rancher/rke2/server/node-token)"
 echo "The key can also be found at /var/lib/rancher/rke2/server/node-token"
 echo "----------"
 
-kubectl get node -o wide
+if $run_kubectl; then
+    kubectl get node -o wide
+fi
 
