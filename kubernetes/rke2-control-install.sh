@@ -19,6 +19,7 @@ systemctl start rke2-server.service
 ln -s $(find /var/lib/rancher/rke2/data/ -name kubectl) /usr/local/bin/kubectl
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 echo "export KUBECONFIG=/etc/rancher/rke2/rke2.yaml" | tee -a ~/.bashrc
+source ~/.bashrc
 
 echo "----------"
 echo "Server has started."
