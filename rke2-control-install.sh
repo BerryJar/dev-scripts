@@ -1,19 +1,5 @@
 #!/bin/sh
 
-run_kubectl=false
-
-while getopts ":n": opt; do
-    case $opt in
-        nc)
-            run_kubectl=true
-            ;;
-        /?)
-            echo "Invalid option: -$OPTARG" >&2
-            exit 1
-            ;;
-    esac
-done
-
 if (( $EUID != 0 )); then
     echo "You must run this script as root."
 fi
@@ -35,12 +21,10 @@ export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 echo "export KUBECONFIG=/etc/rancher/rke2/rke2.yaml" | tee -a ~/.bashrc
 
 echo "----------"
+echo "Server has started."
 echo "Below is your server key. Pass the output into the rke2-worker-install.sh script as the second argument."
 echo "$(cat /var/lib/rancher/rke2/server/node-token)"
 echo "The key can also be found at /var/lib/rancher/rke2/server/node-token"
 echo "----------"
 
-if $run_kubectl; then
-    kubectl get node -o wide
-fi
 
