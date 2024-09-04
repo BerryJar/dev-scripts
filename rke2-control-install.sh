@@ -2,7 +2,7 @@
 
 run_kubectl=false
 
-while getopts ":nc: opt; do
+while getopts ":n": opt; do
     case $opt in
         nc)
             run_kubectl=true
